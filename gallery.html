@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#101a3a;
+      --text:#eaf0ff;
+      --muted:#b9c2e4;
+      --card: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.18);
+    }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(1200px circle at 20% 10%, #2a3bff33, transparent 55%),
+                  radial-gradient(900px circle at 90% 30%, #ff2ab933, transparent 50%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+    .wrap{
+      width:min(1100px, 92vw);
+      margin: 32px auto 60px;
+    }
+    .page-header,
+    .featured-photo,
+    .slideshow-container,
+    .next-page{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+    }
+    .page-header{
+      padding: 22px 22px 18px;
+    }
+    .page-header h1{ margin:0 0 10px; font-size: clamp(22px, 3vw, 34px); }
+    .page-header p{ margin:0; color:var(--muted); line-height:1.5; }
+    .featured-photo{ margin-top:18px; padding:16px; }
+    .featured-photo img{
+      width:100%;
+      height: auto;
+      display:block;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .gallery-grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .gallery-grid img{
+      width:100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+    }
+    @media (max-width: 900px){ .gallery-grid{ grid-template-columns: repeat(3, 1fr);} }
+    @media (max-width: 600px){ .gallery-grid{ grid-template-columns: repeat(2, 1fr);} }
+
+    .slideshow-container{ margin-top: 18px; padding: 18px; }
+    .slideshow-container h2{ margin: 0 0 12px; }
+    #slideshow{
+      width:100%;
+      height: auto;
+      display:block;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .next-page{ margin-top: 18px; padding: 18px; display:flex; justify-content:center; }
+    .next-btn{
+      cursor:pointer;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+      color: var(--text);
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+    .next-btn:hover{ transform: translateY(-1px); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="page-header">
+      <h1>Beautiful Memories 📸</h1>
+      <p>
+        Every picture tells a story,
+        and every story becomes a beautiful memory.
+      </p>
+    </div>
+
+    <!-- Featured Photo -->
+    <div class="featured-photo">
+      <img src="photos/anam-main.jpg" alt="Anam">
+    </div>
+
+    <!-- Photo Gallery -->
+    <div class="gallery-grid">
+      <img src="photos/1.jpg" alt="">
+      <img src="photos/2.jpg" alt="">
+      <img src="photos/3.jpg" alt="">
+      <img src="photos/4.jpg" alt="">
+      <img src="photos/5.jpg" alt="">
+      <img src="photos/6.jpg" alt="">
+      <img src="photos/7.jpg" alt="">
+      <img src="photos/8.jpg" alt="">
+      <img src="photos/9.jpg" alt="">
+      <img src="photos/10.jpg" alt="">
+      <img src="photos/11.jpg" alt="">
+      <img src="photos/12.jpg" alt="">
+      <img src="photos/13.jpg" alt="">
+      <img src="photos/14.jpg" alt="">
+      <img src="photos/15.jpg" alt="">
+      <img src="photos/16.jpg" alt="">
+      <img src="photos/17.jpg" alt="">
+      <img src="photos/18.jpg" alt="">
+      <img src="photos/19.jpg" alt="">
+      <img src="photos/20.jpg" alt="">
+    </div>
+
+    <!-- Slideshow Section -->
+    <div class="slideshow-container">
+      <h2>✨ Special Moments ✨</h2>
+      <img id="slideshow" src="photos/1.jpg" alt="Slideshow">
+    </div>
+
+    <div class="next-page">
+      <a href="memories.html">
+        <button class="next-btn">Continue to Our Memories ❤️</button>
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    // Simple slideshow (auto-advances through 1..20)
+    (function () {
+      const img = document.getElementById('slideshow');
+      if (!img) return;
+      let i = 1;
+      setInterval(() => {
+        i = i >= 20 ? 1 : i + 1;
+        img.src = `photos/${i}.jpg`;
+      }, 2500);
+    })();
+  </script>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+

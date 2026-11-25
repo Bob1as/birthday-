@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Secret Birthday Gift</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#101a3a;
+      --text:#eaf0ff;
+      --muted:#b9c2e4;
+      --card: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.18);
+    }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(1200px circle at 20% 10%, #2a3bff33, transparent 55%),
+                  radial-gradient(900px circle at 90% 30%, #ff2ab933, transparent 50%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    .wrap{ width:min(1100px, 92vw); margin: 32px auto 60px; }
+
+    .page-header{ padding: 22px 22px 18px; margin-bottom: 18px; }
+    .page-header h1{ margin:0 0 10px; font-size: clamp(20px, 3vw, 34px); }
+    .page-header p{ margin:0; color:var(--muted); line-height:1.5; }
+
+    .glass-card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+    }
+
+    .gift-container{
+      padding: 22px;
+      display:flex;
+      align-items:center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .gift-box{
+      width: 92px;
+      height: 92px;
+      border-radius: 22px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border: 1px solid rgba(255,255,255,0.20);
+      background: linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
+      box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+      font-size: 34px;
+      user-select:none;
+      cursor: pointer;
+      transform: translateZ(0);
+      transition: transform .25s ease;
+      position: relative;
+      overflow:hidden;
+    }
+    .gift-box:hover{ transform: translateY(-2px) rotate(-1deg); }
+
+    .gift-btn{
+      cursor:pointer;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+      color: var(--text);
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 800;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .gift-message{
+      margin-top: 18px;
+      padding: 22px;
+      border-radius: 18px;
+      display:none;
+      transform: translateY(10px) scale(0.98);
+      opacity:0;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+    }
+    .gift-message h2{ margin:0 0 12px; font-size: clamp(18px, 2.4vw, 26px); }
+    .gift-message p{ margin: 10px 0; color: var(--muted); line-height:1.7; }
+    .gift-message h3{ margin: 16px 0 0; }
+    .signature{ margin-top: 10px; font-weight: 800; color: var(--text); }
+
+    .reveal{
+      display:block;
+      animation: popIn .8s ease forwards;
+    }
+    @keyframes popIn{
+      to{ opacity:1; transform: translateY(0) scale(1); }
+    }
+
+    .next-page{ margin-top: 18px; display:flex; justify-content:center; }
+    .next-btn{
+      cursor:pointer;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+      color: var(--text);
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    /* Confetti */
+    #confettiLayer{
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      overflow: hidden;
+    }
+    .confetti{
+      position:absolute;
+      top:-10px;
+      width: 10px;
+      height: 16px;
+      border-radius: 3px;
+      opacity: .95;
+      animation: fall var(--dur) linear forwards;
+    }
+    @keyframes fall{
+      to{
+        transform: translate(var(--drift), 110vh) rotate(var(--rot));
+        opacity: 0;
+      }
+    }
+
+    /* Floating hearts */
+    .heart{
+      position: fixed;
+      bottom: -10px;
+      left: var(--x);
+      font-size: var(--size);
+      z-index: 9998;
+      pointer-events:none;
+      opacity:0;
+      animation: rise var(--dur) ease-out forwards;
+    }
+    @keyframes rise{
+      0%{ transform: translateY(0) scale(.9); opacity:0; }
+      10%{ opacity:1; }
+      100%{ transform: translateY(-120vh) scale(1.1); opacity:0; }
+    }
+
+    /* Magical glow */
+    .sparkle{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: white;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      animation: sparkle 900ms ease-out forwards;
+    }
+    @keyframes sparkle{
+      0%{ opacity:0; transform: translate(-50%, -50%) scale(.3); }
+      20%{ opacity:1; }
+      100%{ opacity:0; transform: translate(calc(-50% + var(--sx)), calc(-50% + var(--sy))) scale(1.4); }
+    }
+  </style>
+</head>
+<body>
+  <div id="confettiLayer" aria-hidden="true"></div>
+
+  <div class="wrap">
+
+    <div class="page-header">
+
+      <h1>Your Secret Birthday Gift 🎁</h1>
+
+      <p>
+        A special message is waiting for you...
+      </p>
+
+    </div>
+
+    <div class="glass-card gift-container" style="justify-content:flex-start;">
+
+      <div class="gift-box" id="giftBox" role="button" tabindex="0" aria-label="Open gift">
+        🎁
+      </div>
+
+      <button class="gift-btn" onclick="openGift()">
+        Open My Gift ❤️
+      </button>
+
+    </div>
+
+    <div id="giftMessage" class="gift-message">
+
+      <h2>Dear Anam ❤️</h2>
+
+      <p>
+        Today is your special day,
+        and I wanted to remind you
+        how amazing and appreciated you are.
+      </p>
+
+      <p>
+        Your kindness,
+        your respect for others,
+        and your caring nature
+        make you one of the most beautiful souls I know.
+      </p>
+
+      <p>
+        Some people make life better simply by being part of it.
+        You are one of those people.
+      </p>
+
+      <p>
+        Thank you for being such a wonderful person
+        and an amazing sister-like friend.
+      </p>
+
+      <p>
+        May Allah bless you with happiness,
+        peace, success, and countless reasons to smile.
+      </p>
+
+      <p>
+        Never stop being the wonderful person you are.
+      </p>
+
+      <h3>
+        🎂 Happy Birthday Anam 🎂
+      </h3>
+
+      <p class="signature">
+        ❤️ From Aaves ❤️
+      </p>
+
+    </div>
+
+    <div class="next-page">
+
+      <a href="finale.html">
+        <button class="next-btn">Final Surprise 🌹</button>
+      </a>
+
+    </div>
+
+  </div>
+
+  <script>
+    let opened = false;
+
+    function rand(min, max){
+      return Math.random() * (max - min) + min;
+    }
+
+    function spawnConfetti(){
+      const layer = document.getElementById('confettiLayer');
+      const colors = ['#ff4d6d','#ffd166','#06d6a0','#4cc9f0','#b517ff','#f72585'];
+      const count = 140;
+
+      for(let i=0;i<count;i++){
+        const c = document.createElement('div');
+        c.className = 'confetti';
+        c.style.left = rand(5, 95) + 'vw';
+        c.style.background = colors[Math.floor(Math.random()*colors.length)];
+        c.style.setProperty('--dur', rand(1600, 2600) + 'ms');
+        c.style.setProperty('--drift', rand(-140, 140) + 'px');
+        c.style.setProperty('--rot', rand(-720, 720) + 'deg');
+        c.style.width = rand(7, 12) + 'px';
+        c.style.height = rand(10, 18) + 'px';
+        layer.appendChild(c);
+
+        setTimeout(()=>{ c.remove(); }, 3000);
+      }
+    }
+
+    function spawnHearts(){
+      const n = 18;
+      for(let i=0;i<n;i++){
+        const h = document.createElement('div');
+        h.className = 'heart';
+        h.textContent = '❤️';
+        h.style.setProperty('--x', rand(10, 90) + 'vw');
+        h.style.setProperty('--size', rand(18, 28) + 'px');
+        h.style.setProperty('--dur', rand(900, 1400) + 'ms');
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(), 1600);
+      }
+    }
+
+    function sparkleBurst(){
+      const box = document.getElementById('giftBox');
+      if(!box) return;
+      const rect = box.getBoundingClientRect();
+      const cx = rect.width/2;
+      const cy = rect.height/2;
+
+      for(let i=0;i<10;i++){
+        const s = document.createElement('div');
+        s.className = 'sparkle';
+        s.style.left = cx + 'px';
+        s.style.top = cy + 'px';
+        s.style.setProperty('--sx', rand(-120, 120) + 'px');
+        s.style.setProperty('--sy', rand(-140, -10) + 'px');
+        box.appendChild(s);
+        setTimeout(()=>s.remove(), 950);
+      }
+    }
+
+    function openGift(){
+      if(opened) return;
+      opened = true;
+
+      const msg = document.getElementById('giftMessage');
+      const box = document.getElementById('giftBox');
+
+      // animate box
+      if(box){
+        box.style.transform = 'translateY(-2px) rotate(-2deg) scale(1.02)';
+      }
+
+      sparkleBurst();
+      spawnHearts();
+      spawnConfetti();
+
+      // reveal message
+      if(msg){
+        msg.classList.add('reveal');
+        msg.style.display = 'block';
+      }
+    }
+
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Enter' || e.key === ' '){
+        const active = document.activeElement;
+        if(active && active.id === 'giftBox') openGift();
+      }
+    });
+
+    const box = document.getElementById('giftBox');
+    if(box){
+      box.addEventListener('click', openGift);
+    }
+  </script>
+  <script src="js/script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Memories</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#101a3a;
+      --text:#eaf0ff;
+      --muted:#b9c2e4;
+      --card: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.18);
+    }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(1200px circle at 20% 10%, #2a3bff33, transparent 55%),
+                  radial-gradient(900px circle at 90% 30%, #ff2ab933, transparent 50%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    .wrap{ width:min(1100px, 92vw); margin: 32px auto 60px; }
+
+    .glass-card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+    }
+
+    .page-header{
+      padding: 22px 22px 18px;
+    }
+    .page-header h1{ margin:0 0 10px; font-size: clamp(22px, 3vw, 34px); }
+    .page-header p{ margin:0; color:var(--muted); line-height:1.5; }
+
+    .memory-letter{ padding: 22px; }
+    .memory-letter h2{ margin:0 0 12px; font-size: clamp(18px, 2.4vw, 24px); }
+    .memory-letter p{ margin: 10px 0; color: var(--text); opacity: .95; line-height:1.65; }
+    .signature{ margin-top: 16px; font-weight: 800; opacity: .95; }
+
+    .timeline{
+      margin-top: 18px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .timeline-card{
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    }
+
+    .next-page{ margin-top: 18px; display:flex; justify-content:center; }
+    .next-btn{
+      cursor:pointer;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+      color: var(--text);
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+    .next-btn:hover{ transform: translateY(-1px); }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="page-header glass-card">
+      <h1>Our Memories ❤️</h1>
+
+      <p>
+        Some memories fade with time,
+        but the beautiful ones stay forever.
+      </p>
+    </div>
+
+    <div class="memory-letter glass-card">
+
+      <h2>Dear Anam 💌</h2>
+
+      <p>
+        Life introduces us to many people,
+        but only a few leave a special place in our hearts.
+      </p>
+
+      <p>
+        You are one of those rare people.
+      </p>
+
+      <p>
+        Your kindness, your caring nature,
+        and the respect you show others
+        make you truly special.
+      </p>
+
+      <p>
+        Some people are remembered because of what they do.
+        Some are remembered because of who they are.
+      </p>
+
+      <p>
+        You are remembered because of your beautiful heart.
+      </p>
+
+      <p>
+        Every conversation,
+        every laugh,
+        every moment of positivity
+        becomes a memory worth keeping.
+      </p>
+
+      <p>
+        Thank you for being such an amazing person
+        and a wonderful sister-like friend.
+      </p>
+
+      <p>
+        May your life always be filled with happiness,
+        peace, success, and countless beautiful memories.
+      </p>
+
+      <p class="signature">
+        — Aaves ❤️
+      </p>
+
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-card">
+        ✨ A beautiful friendship
+      </div>
+
+      <div class="timeline-card">
+        ❤️ Countless smiles
+      </div>
+
+      <div class="timeline-card">
+        🌷 Moments of kindness
+      </div>
+
+      <div class="timeline-card">
+        🌟 Precious memories
+      </div>
+
+      <div class="timeline-card">
+        🤲 Endless good wishes
+      </div>
+
+    </div>
+
+    <div class="next-page">
+
+      <a href="special.html">
+        <button class="next-btn">
+          Discover Why Anam Is Amazing 🌸
+        </button>
+      </a>
+
+    </div>
+
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>
+

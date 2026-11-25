@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Why Anam Is Amazing</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#101a3a;
+      --text:#eaf0ff;
+      --muted:#b9c2e4;
+      --card: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.18);
+    }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(1200px circle at 20% 10%, #2a3bff33, transparent 55%),
+                  radial-gradient(900px circle at 90% 30%, #ff2ab933, transparent 50%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    .wrap{ width:min(1100px, 92vw); margin: 32px auto 60px; }
+
+    .glass-card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+    }
+
+    .page-header{
+      padding: 22px 22px 18px;
+      margin-bottom: 18px;
+    }
+    .page-header h1{ margin:0 0 10px; font-size: clamp(22px, 3vw, 34px); }
+    .page-header p{ margin:0; color:var(--muted); line-height:1.5; }
+
+    .qualities-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+    @media (max-width: 900px){ .qualities-grid{ grid-template-columns: repeat(2, 1fr);} }
+    @media (max-width: 600px){ .qualities-grid{ grid-template-columns: 1fr;} }
+
+    .quality-card{
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+    }
+    .quality-card .icon{ font-size: 26px; margin-bottom: 10px; }
+    .quality-card h3{ margin: 0 0 8px; font-size: 18px; }
+    .quality-card p{ margin: 0; color: var(--muted); line-height: 1.55; }
+
+    .special-message{ padding: 22px; margin-top: 18px; }
+    .special-message h2{ margin:0 0 12px; font-size: clamp(18px, 2.4vw, 26px); }
+    .special-message p{ margin: 10px 0; color: var(--muted); line-height:1.65; }
+
+    .next-page{ margin-top: 18px; display:flex; justify-content:center; }
+    .next-btn{
+      cursor:pointer;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+      color: var(--text);
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+    .next-btn:hover{ transform: translateY(-1px); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="page-header">
+
+      <h1>Why Anam Is Amazing 🌸</h1>
+
+      <p>
+        Some people make the world brighter simply by being in it.
+      </p>
+
+    </div>
+
+    <div class="qualities-grid">
+
+      <div class="quality-card">
+        <div class="icon">❤️</div>
+        <h3>Kind Heart</h3>
+        <p>
+          Your kindness touches people in ways you may never realize.
+        </p>
+      </div>
+
+      <div class="quality-card">
+        <div class="icon">🌷</div>
+        <h3>Caring Nature</h3>
+        <p>
+          You always make others feel valued and appreciated.
+        </p>
+      </div>
+
+      <div class="quality-card">
+        <div class="icon">✨</div>
+        <h3>Positive Soul</h3>
+        <p>
+          Your presence brings warmth, comfort, and positivity.
+        </p>
+      </div>
+
+      <div class="quality-card">
+        <div class="icon">🌟</div>
+        <h3>Beautiful Personality</h3>
+        <p>
+          You stand out because of your genuine and respectful nature.
+        </p>
+      </div>
+
+      <div class="quality-card">
+        <div class="icon">🤲</div>
+        <h3>Strong Faith</h3>
+        <p>
+          May your faith continue to guide and strengthen you.
+        </p>
+      </div>
+
+      <div class="quality-card">
+        <div class="icon">😊</div>
+        <h3>Precious Smile</h3>
+        <p>
+          Your smile has the power to brighten someone's day.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="special-message glass-card">
+
+      <h2>A Special Note 💌</h2>
+
+      <p>
+        Anam, one of the most beautiful things about you
+        is not how you look,
+        but how you make people feel.
+      </p>
+
+      <p>
+        Your kindness, patience, and caring nature
+        make you truly unforgettable.
+      </p>
+
+      <p>
+        Never underestimate how much positivity
+        you bring into the lives of others.
+      </p>
+
+      <p>
+        Stay exactly the way you are —
+        kind, genuine, and wonderful.
+      </p>
+
+    </div>
+
+    <div class="next-page">
+
+      <a href="wishes.html">
+        <button class="next-btn">
+          Birthday Wishes 🤲✨
+        </button>
+      </a>
+
+    </div>
+
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>
+

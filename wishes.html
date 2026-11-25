@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Birthday Wishes</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#101a3a;
+      --text:#eaf0ff;
+      --muted:#b9c2e4;
+      --card: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.18);
+    }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(1200px circle at 20% 10%, #2a3bff33, transparent 55%),
+                  radial-gradient(900px circle at 90% 30%, #ff2ab933, transparent 50%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    .wrap{ width:min(1100px, 92vw); margin: 32px auto 60px; }
+
+    .glass-card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+    }
+
+    .page-header{
+      padding: 22px 22px 18px;
+    }
+    .page-header h1{ margin:0 0 10px; font-size: clamp(20px, 3vw, 34px); }
+    .page-header p{ margin:0; color:var(--muted); line-height:1.5; }
+
+    .dua-grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 900px){ .dua-grid{ grid-template-columns: repeat(2, 1fr);} }
+    @media (max-width: 600px){ .dua-grid{ grid-template-columns: 1fr;} }
+
+    .dua-card{
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+    }
+    .dua-card h3{ margin:0 0 8px; font-size: 18px; }
+    .dua-card p{ margin:0; color:var(--muted); line-height:1.6; }
+
+    .main-prayer{ padding: 22px; margin-top: 18px; }
+    .main-prayer h2{ margin:0 0 12px; font-size: clamp(18px, 2.4vw, 26px); }
+    .main-prayer p{ margin: 10px 0; color: var(--muted); line-height:1.65; }
+
+    .quote-box{ padding: 22px; margin-top: 18px; }
+    .quote-box h2{ margin:0 0 12px; font-size: clamp(18px, 2.4vw, 26px); }
+    .quote-box p{ margin:0; color: var(--muted); line-height:1.7; font-size: 16px; }
+
+    .next-page{ margin-top: 18px; display:flex; justify-content:center; }
+    .next-btn{
+      cursor:pointer;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+      color: var(--text);
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+    .next-btn:hover{ transform: translateY(-1px); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="page-header glass-card">
+      <h1>Birthday Wishes For Anam 🤲✨</h1>
+
+      <p>
+        A collection of prayers, blessings, and heartfelt wishes.
+      </p>
+    </div>
+
+    <div class="dua-grid">
+
+      <div class="dua-card">
+        <h3>🤲 Happiness</h3>
+        <p>
+          May Allah fill your life with endless happiness,
+          peace, and beautiful moments.
+        </p>
+      </div>
+
+      <div class="dua-card">
+        <h3>🌷 Success</h3>
+        <p>
+          May every goal you pursue lead you toward
+          success and fulfillment.
+        </p>
+      </div>
+
+      <div class="dua-card">
+        <h3>❤️ Good Health</h3>
+        <p>
+          May Allah bless you with good health,
+          strength, and well-being.
+        </p>
+      </div>
+
+      <div class="dua-card">
+        <h3>✨ Barakah</h3>
+        <p>
+          May your life be filled with barakah,
+          prosperity, and goodness.
+        </p>
+      </div>
+
+      <div class="dua-card">
+        <h3>🌙 Guidance</h3>
+        <p>
+          May Allah guide your every step
+          and protect you always.
+        </p>
+      </div>
+
+      <div class="dua-card">
+        <h3>💖 Dreams</h3>
+        <p>
+          May every beautiful dream in your heart
+          become reality.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="main-prayer glass-card">
+
+      <h2>A Special Prayer For You 🤲</h2>
+
+      <p>
+        Dear Anam,
+      </p>
+
+      <p>
+        On your birthday, I pray that Allah grants you
+        happiness that never fades,
+        strength that never weakens,
+        and success that never stops growing.
+      </p>
+
+      <p>
+        May your heart always remain peaceful,
+        your smile always remain bright,
+        and your future become more beautiful
+        than anything you have ever imagined.
+      </p>
+
+      <p>
+        May every sincere dua you make
+        be accepted by Allah.
+      </p>
+
+      <p>
+        Ameen 🤲✨
+      </p>
+
+    </div>
+
+    <div class="quote-box glass-card">
+
+      <h2>🌹 Special Birthday Quote 🌹</h2>
+
+      <p>
+        "The world became a little brighter
+        the day Anam was born."
+      </p>
+
+    </div>
+
+    <div class="next-page">
+
+      <a href="gift.html">
+        <button class="next-btn">Open Secret Gift 🎁</button>
+      </a>
+
+    </div>
+
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>
+
